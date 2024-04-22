@@ -1,5 +1,5 @@
 "use client";
-import AuthRoute from "@/components/auth-route";
+
 // import { db } from "@/config";
 import { auth, db } from "@/firebase/config";
 
@@ -14,32 +14,30 @@ import {
 } from "@nextui-org/react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { addDoc, collection } from "firebase/firestore";
-import { Binary, Building, Loader, Mail, Radio } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useUser } from "@/hooks/get-user-data";
 function Page() {
   //   const [user, loading, error] = useAuthState(auth);
-  const { userData, loading } = useUser();
-  console.log(userData, loading);
+  // const { userData, loading } = useUser();
+  // console.log(userData, loading);
   const { register, handleSubmit } = useForm();
   const [role, setRole] = useState("student");
   const router = useRouter();
   const onSubmit = (data: any) => {
     try {
       let body = { ...data, role: role };
-      
+
       let newPromise = new Promise(async (resolve, reject) => {
         try {
           createUserWithEmailAndPassword(auth, body.email, body.password)
             .then(async (res) => {
               await addDoc(collection(db, `${body.email}`), body);
-            //   router.push("/login");
+              //   router.push("/login");
               resolve("");
+              router.push("/faculty")
             })
             .catch((error: any) => {
               reject("");
@@ -59,24 +57,10 @@ function Page() {
       toast.error(error.message);
     }
   };
-  if (loading) {
-    return (
-      <div className="h-screen flex justify-center items-center">
-        <Loader className="animate-spin" />
-      </div>
-    );
-  }
-  if (userData) {
-    if (userData.role === "student") {
-      router.push("/student");
-    } else {
-      router.push("/faculty");
-    }
-    return <></>;
-  }
+  // return <h1>Hello</h1>
   return (
     <div className="max-w-3xl my-6 py-20 px-4  mx-auto">
-      <AuthRoute />
+      
 
       <div className="mt-6">
         <div className="flex flex-col w-full flex-wrap  mb-6 md:mb-0 gap-4">
