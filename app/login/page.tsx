@@ -14,8 +14,15 @@ function Page() {
   const router = useRouter();
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data:any) => {
-    signInWithEmailAndPassword(auth, data.email, data.password);
+  const onSubmit = (data: any) => {
+    try {
+      signInWithEmailAndPassword(auth, data.email, data.password)
+      .catch(()=>{
+        alert("Please use correct credentials")
+      });
+    } catch (error) {
+      alert("Please use correct credentials");
+    }
   };
   if (loading) {
     return <Loading />;

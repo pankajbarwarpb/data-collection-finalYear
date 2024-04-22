@@ -3,10 +3,12 @@ import { auth } from '@/firebase/config';
 import { useRoute } from '@/hooks/route'
 import { Button } from '@nextui-org/react';
 import { signOut } from 'firebase/auth';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 function Navbar() {
   useRoute();
+  const router = useRouter();
   return (
     <div className='max-w-3xl gap-6 flex py-2 justify-between mx-auto px-4 '>
         <div className='flex items-center gap-3'>
@@ -16,6 +18,7 @@ function Navbar() {
         <div>
           <Button color='danger' onClick={()=>{
             signOut(auth)
+            router.push("/signup")
           }}>
             Sign Out 
           </Button>

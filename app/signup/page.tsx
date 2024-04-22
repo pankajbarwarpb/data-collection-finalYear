@@ -1,5 +1,6 @@
 "use client";
 
+import AuthRoute from "@/components/auth-route";
 // import { db } from "@/config";
 import { auth, db } from "@/firebase/config";
 
@@ -61,7 +62,7 @@ function Page() {
   return (
     <div className="max-w-3xl my-6 py-20 px-4  mx-auto">
       
-
+     <AuthRoute/>
       <div className="mt-6">
         <div className="flex flex-col w-full flex-wrap  mb-6 md:mb-0 gap-4">
           <Input
