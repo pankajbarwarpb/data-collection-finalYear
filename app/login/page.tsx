@@ -14,24 +14,35 @@ function Page() {
   const router = useRouter();
 
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data: any) => {
     try {
       signInWithEmailAndPassword(auth, data.email, data.password)
-      .catch(()=>{
-        alert("Please use correct credentials")
-      });
-    } catch (error) {
+        .then((res) => {
+          if(data.email==="admin@gmail.com"){
+            router.push("/admin")
+          }
+        })
+        .catch(() => {
+          alert("Please use correct credentials");
+        });
+    } catch (error: any) {
+      console.log(error.message);
       alert("Please use correct credentials");
     }
   };
+  console.log(userData);
   if (loading) {
     return <Loading />;
   }
   if (userData) {
-    if (userData.role === "student") {
+    console.log("userData");
+    if (userData?.role === "student") {
       router.push("/student");
-    } else {
+    } else if (userData?.role === "faculty") {
       router.push("/faculty");
+    } else {
+      router.push("/admin");
     }
     return <></>;
   }

@@ -1,6 +1,7 @@
 "use client";
 import { db } from "@/firebase/config";
 import { useUser } from "@/hooks/get-user-data";
+import { useRoute } from "@/hooks/route";
 import { useAllEvent } from "@/hooks/useAllEvent";
 import { useEvent } from "@/hooks/useEvent";
 import { Button } from "@nextui-org/react";
@@ -15,6 +16,7 @@ function Page() {
   const { userData, loading } = useUser();
   const router = useRouter();
 //   const [event, setEvents] = useState([]);
+useRoute();
   const {event} = useEvent();
   if (loading) {
     return (
@@ -25,13 +27,21 @@ function Page() {
       </>
     );
   }
-  if (userData.role === "student") {
+  if (userData?.role === "student") {
     router.push("/student");
     return;
   }
   return (
     <>
       <div className="max-w-3xl px-4 mx-auto mt-10">
+        <div className="flex mb-10 justify-between">
+          <span className="text-2xl font-bold">Upload monthly report</span>
+          <Link href="/faculty/monthly-report">
+           <Button color="primary">
+            Monthly Report
+           </Button>
+          </Link>
+        </div>
         <div className="flex justify-between">
           <span className="text-2xl font-bold">All Events</span>
           <Link href="/faculty/new-event">

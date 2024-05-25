@@ -11,7 +11,7 @@ export const useUser = () => {
     const snapShot = await getDocs(collection(db, `${user?.email}`));
     let arr: any = [];
     snapShot.forEach((doc: any) => {
-      console.log(doc.id);
+      // console.log(doc.id);
       arr.push({ id: doc.id, ...doc.data() });
     });
     setUserData(arr[0]);
