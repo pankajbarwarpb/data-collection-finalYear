@@ -33,7 +33,7 @@ function Page() {
       </div>
     );
   }
-  if (userData.role === "student") {
+  if (userData?.role === "student") {
     router.push("/student");
   }
   if (!userData) {

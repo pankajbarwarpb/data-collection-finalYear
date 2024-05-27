@@ -39,6 +39,8 @@ function Page() {
   const submit = (data: any) => {
     console.log("clicked");
     console.log(data);
+    // let uploaddata = data;
+    // return ;
     let newPromise = new Promise(async (resolve, reject) => {
       try {
         const selectedFile = data.files;
@@ -228,7 +230,7 @@ function Page() {
             of the papers)
           </label>
           <Input multiple {...register("files")} type="file"
-          accept="application/pdf" />
+           />
         </div>
         <div className="">
           <Button onClick={handleSubmit(submit)} color="primary">
