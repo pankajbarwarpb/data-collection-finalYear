@@ -36,15 +36,15 @@ function Page() {
     return urls;
   }
   const onSubmit = () => {
-    console.log(selectedEvent);
-    console.log(`event/${selectedEvent}/certificates`);
+    // console.log(selectedEvent);
+    // console.log(`event/${selectedEvent}/certificates`);
     // return ;
     try {
       let newPromise = new Promise(async (resolve, reject) => {
         try {
           uploadFiles(selectedFile).then(async (urls: any) => {
-            console.log(`event/${selectedEvent}/certificates`);
-            console.log(urls);
+            // console.log(`event/${selectedEvent}/certificates`);
+            // console.log(urls);
             await addDoc(
               collection(db, `event/${selectedEvent}/certificates`),
               {

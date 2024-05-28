@@ -37,16 +37,16 @@ function Page() {
     return urls;
   }
   const submit = (data: any) => {
-    console.log("clicked");
-    console.log(data);
+    // console.log("clicked");
+    // console.log(data);
     // let uploaddata = data;
     // return ;
     let newPromise = new Promise(async (resolve, reject) => {
       try {
         const selectedFile = data.files;
         uploadFiles(selectedFile).then(async (urls: any) => {
-          console.log(urls);
-          console.log(`monthly_report`);
+          // console.log(urls);
+          // console.log(`monthly_report`);
           data["files"] = "uploaded";
           await addDoc(collection(db, `monthly`), {
             userData,
@@ -74,28 +74,28 @@ function Page() {
           <label htmlFor="">
             Kindly provide the number of events as well as the event details.
           </label>
-          <Textarea {...register("number_of_events")} minRows={10} />
+          <Textarea {...register("number_of_events")} multiple />
         </div>
         <div className="space-y-4">
           <label htmlFor="">
             No. of FDP/STC organised(Funding Agency/Self Sponsored) (Kindly
             provide details of the same):
           </label>
-          <Textarea {...register("no_of_FDP_STC")} minRows={10} />
+          <Textarea {...register("no_of_FDP_STC")} multiple />
         </div>
         <div className="space-y-4">
           <label htmlFor="">
             No. of workshops organised(Funding Agency/Self Sponsore) (Kindle
             provide details of the same).
           </label>
-          <Textarea {...register("no_of_workshops_organised")} minRows={10} />
+          <Textarea {...register("no_of_workshops_organised")} multiple />
         </div>
         <div className="space-y-4">
           <label htmlFor="">
             Expert Talks organised from Acadamia/Industries (Kindly provide
             details of the same).
           </label>
-          <Textarea {...register("no_of_workshops_submitted")} minRows={10} />
+          <Textarea {...register("no_of_workshops_submitted")} multiple />
         </div>
         <div className="space-y-4">
           <label htmlFor="">
@@ -104,7 +104,7 @@ function Page() {
           </label>
           <Textarea
             {...register("no_of_research_project_sactioned")}
-            minRows={10}
+            multiple
           />
         </div>
         <div className="space-y-4">
@@ -112,7 +112,7 @@ function Page() {
             No. of Research Project Submitted: (name of P.I/Title of the
             Project/Funding Agency/Amount) (Kindle provide details of the same):
           </label>
-          <Textarea {...register("no_of_project_submitted")} minRows={10} />
+          <Textarea {...register("no_of_project_submitted")} multiple />
         </div>
         <div className="space-y-4">
           <label htmlFor="">
@@ -121,7 +121,7 @@ function Page() {
           </label>
           <Textarea
             {...register("no_of_gian_courses_organised")}
-            minRows={10}
+            multiple
           />
         </div>
         <div className="space-y-4">
@@ -131,7 +131,7 @@ function Page() {
           </label>
           <Textarea
             {...register("no_of_gian_courses_submitted")}
-            minRows={10}
+            multiple
           />
         </div>
         <div className="space-y-4">
@@ -141,7 +141,7 @@ function Page() {
           </label>
           <Textarea
             {...register("no_of_national_conferences_organised")}
-            minRows={10}
+            multiple
           />
         </div>
         <div className="space-y-4">
@@ -151,7 +151,7 @@ function Page() {
           </label>
           <Textarea
             {...register("no_of_international_conferences_oraganised")}
-            minRows={10}
+            multiple
           />
         </div>
 
@@ -162,7 +162,7 @@ function Page() {
           </label>
           <Textarea
             {...register("patents_publication_by_the_faculty")}
-            minRows={10}
+            multiple
           />
         </div>
 
@@ -170,7 +170,7 @@ function Page() {
           <label htmlFor="">
             No. of Patents Filed (Kindly provide details of the same)
           </label>
-          <Textarea {...register("no_of_patents_filed")} minRows={10} />
+          <Textarea {...register("no_of_patents_filed")} multiple />
         </div>
 
         <div className="space-y-4">
@@ -178,7 +178,7 @@ function Page() {
             No. of Patents Published/Granted (Kindly provide details of the
             same)
           </label>
-          <Textarea {...register("no_of_patents_published")} minRows={10} />
+          <Textarea {...register("no_of_patents_published")} multiple />
         </div>
 
         <div className="space-y-4">
@@ -186,7 +186,7 @@ function Page() {
             No. of Papers published/accepted in Journals: (Kindly add references
             of the papers)
           </label>
-          <Textarea {...register("no_of_papers_published")} minRows={10} />
+          <Textarea {...register("no_of_papers_published")} multiple />
         </div>
 
         <div className="space-y-4">
@@ -196,7 +196,7 @@ function Page() {
           </label>
           <Textarea
             {...register("activites_by_the_student_clubsof_department")}
-            minRows={10}
+            multiple
           />
         </div>
 
@@ -208,8 +208,8 @@ function Page() {
           <Textarea
             {...register(
               "initiatives_for_improvements_in_physical_infrastructure"
-            )}
-            minRows={10}
+            )} 
+            multiple 
           />
         </div>
 
@@ -220,7 +220,7 @@ function Page() {
           </label>
           <Textarea
             {...register("any_other_initiatives_not_covered")}
-            minRows={10}
+            multiple
           />
         </div>
 

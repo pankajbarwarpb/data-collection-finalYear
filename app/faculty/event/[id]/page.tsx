@@ -7,7 +7,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 function Page({ params }: { params: { id: string } }) {
-  console.log(params.id);
+  // console.log(params.id);
   const { event }: any = useEvent();
   const [currEvent, setCurrEvent] = useState<any>();
   const [certificates, setCertificates] = useState([]);
@@ -17,14 +17,14 @@ function Page({ params }: { params: { id: string } }) {
         id: params.id,
       })
       .then((data: any) => {
-        console.log(data.data.data);
+        // console.log(data.data.data);
         setCertificates(data.data.data);
       });
-  }, []);
+  }, [params.id]);
   useEffect(() => {
     let arr = event.filter((e: any) => e.id === params.id);
     setCurrEvent(arr[0]);
-  }, [event]);
+  }, [event, params.id]);
   return (
     <>
       <div className="max-w-3xl px-4 mt-6 mx-auto roulg">

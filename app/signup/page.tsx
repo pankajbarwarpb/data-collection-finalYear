@@ -53,7 +53,7 @@ function Page() {
         success: "Account created successfully",
       });
 
-      console.log(body);
+      // console.log(body);
     } catch (error: any) {
       toast.error(error.message);
     }
@@ -66,11 +66,12 @@ function Page() {
       <div className="mt-6">
         <div className="flex flex-col w-full flex-wrap  mb-6 md:mb-0 gap-4">
           <Input
+          autoFocus
             {...register("name")}
             name="name"
             type="text"
             label="Name"
-            placeholder="Ridhima Parmar"
+            placeholder="Full Name"
             labelPlacement="inside"
           />
           {role === "student" && (
@@ -79,7 +80,7 @@ function Page() {
               name="roll_number"
               type="number"
               label="Roll Number"
-              placeholder="20103123"
+              placeholder="20202020"
               labelPlacement="inside"
             />
           )}
@@ -89,7 +90,7 @@ function Page() {
             name="department"
             label="Department"
             type="text"
-            placeholder="CSE"
+            placeholder="BTech"
             labelPlacement="inside"
           />
           {role === "student" && (
@@ -115,7 +116,7 @@ function Page() {
             name="email"
             label="email"
             type="email"
-            placeholder="ridhima@gmail.com"
+            placeholder="example@gmail.com"
             labelPlacement="inside"
           />
           <Input
@@ -123,7 +124,7 @@ function Page() {
             name="password"
             label="password"
             type="password"
-            placeholder="*****"
+            placeholder="********"
             labelPlacement="inside"
           />
           <Input
@@ -131,7 +132,7 @@ function Page() {
             name="confirm_password"
             label="Confirm Password"
             type="password"
-            placeholder="*****"
+            placeholder="********"
             labelPlacement="inside"
           />
           <select

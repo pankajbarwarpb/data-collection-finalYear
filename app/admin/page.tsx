@@ -9,7 +9,7 @@ function Page() {
   const [reports, setReport] = useState([]);
   useEffect(() => {
     axios.get("/api/get-monthly-report").then(({ data: { data } }) => {
-      console.log(data)
+      // console.log(data)
       setReport(data);
     });
   }, []);

@@ -21,7 +21,7 @@ function Page({ params }: { params: { id: string } }) {
       setUploadDate(date.toLocaleDateString());
       setReport(data);
     });
-  }, []);
+  }, [params]);
   return (
     <div className="max-w-3xl my-20 px-4 mx-auto">
       <div className="flex justify-between">

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 
 function Page({ params }: { params: { id: string } }) {
-    console.log(params.id);
+    // console.log(params.id);
     let [id, subid] = params.id.split("-");
     const [certificates, setCertificates] = useState<any>([]);
   useEffect(() => {
@@ -14,12 +14,12 @@ function Page({ params }: { params: { id: string } }) {
         id: id,
       })
       .then((data: any) => {
-        console.log(data.data.data);
+        // console.log(data.data.data);
         let arr= data.data.data.filter((e:any)=>e.id===subid);
-        console.log(arr[0].urls);
+        // console.log(arr[0].urls);
         setCertificates(arr[0]);
       });
-  }, []);
+  }, [id, subid]);
   return (
     <>
      <div className='max-w-3xl px-4 mt-6 mx-auto'>

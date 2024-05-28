@@ -10,6 +10,8 @@ import toast from "react-hot-toast";
 
 function Page() {
   const { userData, loading } = useUser();
+  console.log({userData});
+  
   const router = useRouter();
   const { register, handleSubmit } = useForm();
   const [date, setDate] = useState("");
@@ -37,6 +39,7 @@ function Page() {
     router.push("/student");
   }
   if (!userData) {
+    alert('going to login')
     router.push("/login");
   }
   return (

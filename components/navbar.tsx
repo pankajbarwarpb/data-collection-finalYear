@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { auth } from "@/firebase/config";
 import { useRoute } from "@/hooks/route";
@@ -30,7 +31,7 @@ function Navbar() {
               color="danger"
               onClick={() => {
                 signOut(auth);
-                router.push("/signup");
+                router.push("/login");
               }}
             >
               Sign Out
