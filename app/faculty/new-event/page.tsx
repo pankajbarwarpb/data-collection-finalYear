@@ -10,7 +10,7 @@ import toast from "react-hot-toast";
 
 function Page() {
   const { userData, loading } = useUser();
-  console.log({userData});
+  // console.log({userData});
   
   const router = useRouter();
   const { register, handleSubmit } = useForm();
