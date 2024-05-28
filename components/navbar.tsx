@@ -15,7 +15,7 @@ function Navbar() {
   const [user]: any = useAuthState(auth);
   // console.log(user + "asdf");
   return (
-    <div className="max-w-3xl gap-6 flex py-2 justify-between mx-auto px-4 ">
+    <div className="max-w-3xl gap-6 flex py-2 justify-between mx-auto px-4 items-center">
       <div className="flex items-center gap-3">
         <img
           className="w-14"
