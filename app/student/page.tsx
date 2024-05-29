@@ -25,6 +25,9 @@ function Page() {
   return (
     <>
       <div className="max-w-3xl px-4 mt-6 mx-auto ">
+      <div className="my-5">
+          <span className="border-2 rounded p-2 border-black">User : {userData.name}</span>
+        </div>
         <div className="flex justify-between">
           <h1 className="text-xl font-bold">
             Certificate submitted for events

@@ -34,6 +34,9 @@ useRoute();
   return (
     <>
       <div className="max-w-3xl px-4 mx-auto mt-10">
+        <div className="my-5">
+          <span className="border-2 rounded p-2 border-black">User : {userData.name}</span>
+        </div>
         <div className="flex mb-10 justify-between">
           <span className="text-2xl font-bold">Upload monthly report</span>
           <Link href="/faculty/monthly-report">

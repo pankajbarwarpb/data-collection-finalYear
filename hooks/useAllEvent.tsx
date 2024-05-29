@@ -6,7 +6,7 @@ export const useAllEvent = () => {
   useEffect(() => {
     axios.get("/api/get-all-event").then((data: any) => {
       let eventList = data?.data?.data;
-      console.log(eventList);
+      // console.log(eventList);
       setEvent(eventList);
     });
   }, []);

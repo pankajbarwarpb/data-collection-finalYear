@@ -15,7 +15,7 @@ function Page({ params }: { params: { id: string } }) {
       data = data.filter((doc: any) => {
         return doc.id === params.id;
       })?.[0];
-      console.log(data);
+      // console.log(data);
       // console.log(data);
       let date = new Date(Number(data.timeStamp.split(",").join("")));
       setUploadDate(date.toLocaleDateString());
